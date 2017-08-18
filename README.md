@@ -1,8 +1,7 @@
 # JocoLibrariesApp
 
-Welcome to your new gem! In this directory, you'll find the files you need to be able to package up your Ruby library into a gem. Put your Ruby code in the file `lib/joco_libraries_app`. To experiment with that code, run `bin/console` for an interactive prompt.
-
-TODO: Delete this and the text above, and describe your gem
+#Objective
+CLI User app designed to scrape data from the county library website and return a complete list of libraries in the county along with their address.  The user can then request more detailed info about a particular library and the program will return that data, which will include: daily hours, phone# and library resources available (such as printing, copying, fax services).
 
 ## Installation
 

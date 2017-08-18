@@ -1,4 +1,4 @@
-# coding: utf-8
+#coding: utf-8
 lib = File.expand_path("../lib", __FILE__)
 $LOAD_PATH.unshift(lib) unless $LOAD_PATH.include?(lib)
 require "joco_libraries_app/version"
@@ -9,9 +9,10 @@ Gem::Specification.new do |spec|
   spec.authors       = ["'Kristy Peterson'"]
   spec.email         = ["'kpeterson.kap@gmail.com'"]
 
-  spec.summary       = %q{TODO: Write a short summary, because Rubygems requires one.}
-  spec.description   = %q{TODO: Write a longer description or delete this line.}
+  spec.summary       = "coming soon"
+  spec.description   = "coming soon"
   spec.homepage      = "TODO: Put your gem's website or public repo URL here."
+
   spec.license       = "MIT"
 
   # Prevent pushing this gem to RubyGems.org. To allow pushes either set the 'allowed_push_host'
