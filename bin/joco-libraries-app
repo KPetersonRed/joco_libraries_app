@@ -1,0 +1,5 @@
+#!/usr/bin/env ruby
+
+require './lib/joco_libraries_app'
+
+JocoLibrariesApp::CLI.new.call #calls new CLI class
