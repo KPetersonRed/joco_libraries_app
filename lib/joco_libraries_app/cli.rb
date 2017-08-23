@@ -27,9 +27,14 @@ class JocoLibrariesApp::CLI
   end
 
   def local_libraries_menu
-    puts "Please enter the number of the library you'd like more info."
+    input = nil
+    puts "Please enter the number of the library you'd like more info or type exit to leave the program."
+    while input != "exit"
     input = gets.chomp
   end
 
+  def goodbye
+    puts "Have a great day!"
+  end
 
 end
