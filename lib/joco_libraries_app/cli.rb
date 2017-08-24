@@ -3,34 +3,36 @@
 class JocoLibrariesApp::CLI
 
   def call #beginning of interface
-    puts "Thank you for using the Kansas Public Libraries database to find more information on public libraries nearest to you."
-    get_zipcode
+    list_libraries #list current public libraries scraped from website in numberical order
+    library_lookup #lookup user selection
+    goodbye
   end
 
-  def get_zipcode
-    puts "Please enter your 5 digit zipcode.  We will return information on the 5 libraries closest to you within a 25 mile radius."
-    zip = gets.chomp
-    valid_input?(zip)
-    zip_lookup(zip)
+  def list_libraries
+    #scrape
+    puts "Johnson County Public Libraries:"
+    puts "1. OP"
+    puts "2. stilwell"
   end
 
-  def valid_input?(zip)
-     #all numbers?  5 characters in length?
-  end
-
-  def zip_lookup(zip)
-    # scrape www.publiclibraries.com/kansas.htm
-    # Found?
-      local_libraries_menu #within 25 mile radius
-    #not found?
-      #msg to user, reenter zip or try a different one
-  end
-
-  def local_libraries_menu
+  def library_lookup
     input = nil
-    puts "Please enter the number of the library you'd like more info or type exit to leave the program."
     while input != "exit"
-    input = gets.chomp
+    puts "Please enter the number of the location you would like more information or type exit to leave the program.  If you like to see the complete list of libraries located in Johnson County type 'list'."
+      input = gets.chomp.downcase
+      valid_input?(input)
+      case input
+      when "1"
+        puts "library info....."
+      when "2"
+        puts "library info"
+      when "list"
+        list_libraries
+      end
+    end
+  end
+
+  def valid_input?(input)
   end
 
   def goodbye

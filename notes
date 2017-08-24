@@ -7,14 +7,22 @@
 7. discover objects
 8. program
 
- - A CLI for Kansas Public libraries
+ - A CLI for Johnson County Public libraries
 
- User types ks-libraries
+ User types joco-libraries-app
 
- Prompt user for their zipcode
-
- Show a list of 5 libraries nearest to them
+ Show a list of libraries
     1. Blue Valley Library, Overland Park, KS
     2. Antioch Library, Overland Park, KS
+    ...
 
   Which library would you like to learn more about?
+    1
+
+  What is a library?  **Create an oject with these properties that is in a collection for the cli to use**
+
+    Has a name
+    Has a location
+    Has a phone number
+    Has a URL
+    Has open/closed hours
