@@ -1,5 +1,5 @@
 #!/usr/bin/env ruby
-
+require 'bundler/setup'
 require './lib/joco_libraries_app'
 
 JocoLibrariesApp::CLI.new.call #calls new CLI class

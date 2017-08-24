@@ -26,3 +26,9 @@
     Has a phone number
     Has a URL
     Has open/closed hours
+
+
+    lib_1.location = "8700 Shawnee Mission Pkwy"
+    lib_1.phone = "913-826-4600"
+    lib_1.url = "https://www.jocolibrary.org/locations/antioch"
+    lib_1.hours = "M-Thr, 9am to 8pm"
