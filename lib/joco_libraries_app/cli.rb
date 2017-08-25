@@ -10,16 +10,20 @@ class JocoLibrariesApp::CLI
 
   def list_libraries
     @libraries = JocoLibrariesApp::Libraries.current #refer to current method in Libraries class to be sure and pull most current list of libraries
+    @libraries.each.with_index(1) {|library, i|  #list libraries in numberical list
+      puts "#{i}. #{library.name} - #{library.location}"
+    }
   end
 
   def library_lookup
     input = nil
     while input != "exit"
-    puts "Please enter the number of the location you would like more information or type exit to leave the program.  If you like to see the complete list of libraries located in Johnson County type 'list'."
-    input = gets.strip
+      puts "Please enter the number of the location you would like more information or type exit to leave the program.  If you like to see the complete list of libraries located in Johnson County type 'list'."
+      input = gets.strip
 
       if input.to_i > 0
-        puts @libraries[input.to_i - 1] #list properties for this instance of the library w/i the array
+        the_library = @libraries[input.to_i - 1]
+        puts "#{the_library.name} - #{the_library.location}"
       elsif input == "list"
         list_libraries
       else

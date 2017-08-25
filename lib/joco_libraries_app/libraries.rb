@@ -7,12 +7,14 @@ class JocoLibrariesApp::Libraries
     #scrape joco.libraries.gov for CURRENT list of libraries
     puts "Johnson County Public Libraries:"
     #create a nested array of instances for each Lib in Joco, each instance w/the same properties.
+    self.scrape_libraries
+  end
 
-    #joco_lib = [
-      #Antioch = [location, phone, url, hours],
-      #Blue Valley = [location, phone, url, hours]] etc
+  def self.scrape_libraries
+    scraped_libraries = []
 
-  #  joco_lib = []
+  #  info.css("a") href locations
+
 
     lib_1 = self.new
     lib_1.name = "Antioch"
@@ -23,8 +25,8 @@ class JocoLibrariesApp::Libraries
     lib_4 = self.new
     lib_4.name = "Central Resource"
 
+    [lib_1, lib_2, lib_3, lib_4]
   end
-
 
 
 end
