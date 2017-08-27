@@ -13,19 +13,14 @@ class JocoLibrariesApp::Libraries
   def self.scrape_libraries
     scraped_libraries = []
 
-  #  info.css("a") href locations
+    doc = Nokogiri::HTML(open("https://www.jocolibrary.org/locations"))
+    binding.pry
 
+  end
 
-    lib_1 = self.new
-    lib_1.name = "Antioch"
-    lib_2 = self.new
-    lib_2.name = "Blue Valley"
-    lib_3 = self.new
-    lib_3.name = "Cedar Roe"
-    lib_4 = self.new
-    lib_4.name = "Central Resource"
+  def self.scrape_library_details
+    #scrape location, phone, hours, url for selected library
 
-    [lib_1, lib_2, lib_3, lib_4]
   end
 
 

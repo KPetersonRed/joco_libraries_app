@@ -32,3 +32,23 @@
     lib_1.phone = "913-826-4600"
     lib_1.url = "https://www.jocolibrary.org/locations/antioch"
     lib_1.hours = "M-Thr, 9am to 8pm"
+
+
+
+    #goto jocolibraries.gov
+    #extract and return list of "library locations/names"
+
+    #scraped_libraries << extracted data
+  #  info.css("a") href locations
+
+
+    #lib_1 = self.new
+    #lib_1.name = "Antioch"
+    #lib_2 = self.new
+    #lib_2.name = "Blue Valley"
+    #lib_3 = self.new
+    #lib_3.name = "Cedar Roe"
+    #lib_4 = self.new
+    #lib_4.name = "Central Resource"
+
+    #[lib_1, lib_2, lib_3, lib_4]
