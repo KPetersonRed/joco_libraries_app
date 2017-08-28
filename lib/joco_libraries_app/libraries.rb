@@ -1,6 +1,7 @@
 class JocoLibrariesApp::Libraries
 
   attr_accessor :name, :location, :phone, :url, :hours
+  #@@scraped_libraries = []
 
 
   def self.current #pulls for this instance of the app call
@@ -11,16 +12,22 @@ class JocoLibrariesApp::Libraries
   end
 
   def self.scrape_libraries
-    scraped_libraries = []
+    libraries = []
     doc = Nokogiri::HTML(open("https://www.jocolibrary.org/locations"))
 
     doc.css(".location_name").each {|library|
-      scraped_libraries << {
-        :name => library.css("a").text
+      libraries << {
+        :name => library.css("a").text,
+        :location => doc.css(".location_address").css("p").text,
+        :url => doc.css(".location_name a").attribute("href").value,
+        :hours => doc.css(".regular_hours").css(".oh-display").text
         }
     }
-    scraped_libraries
-      binding.pry
+    libraries
+      #binding.pry
+  end
+
+  def get_phone
   end
 
   def self.list_libraries
