@@ -12,11 +12,20 @@ class JocoLibrariesApp::Libraries
 
   def self.scrape_libraries
     scraped_libraries = []
-
     doc = Nokogiri::HTML(open("https://www.jocolibrary.org/locations"))
-    binding.pry
 
+    doc.css(".location_name").each {|library|
+      scraped_libraries << {
+        :name => library.css("a").text
+        }
+    }
+    scraped_libraries
+      binding.pry
   end
+
+  def self.list_libraries
+  end
+
 
   def self.scrape_library_details
     #scrape location, phone, hours, url for selected library
