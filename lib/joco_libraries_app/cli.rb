@@ -11,7 +11,7 @@ class JocoLibrariesApp::CLI
   def list_libraries
     @libraries = JocoLibrariesApp::Libraries.current #refer to current method in Libraries class to be sure and pull most current list of libraries
     @libraries.each.with_index(1) {|library, i|  #list libraries in numberical list
-      puts "#{i}. #{library.name} - #{library.location}"
+      puts "#{i}. #{library.name}"
     }
   end
 
