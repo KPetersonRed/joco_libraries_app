@@ -6,3 +6,4 @@ require 'pry'
 require_relative "joco_libraries_app/version"
 require_relative './joco_libraries_app/cli'
 require_relative './joco_libraries_app/libraries'
+require_relative './joco_libraries_app/scraper'

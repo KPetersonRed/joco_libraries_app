@@ -1,31 +1,30 @@
 class JocoLibrariesApp::Libraries
 
-  attr_accessor :name, :location, :phone, :url, :hours
-  #@@scraped_libraries = []
+  attr_accessor :name, :address, :phone, :url, :hours
+  @@all = []
 
-
-  def self.current #pulls for this instance of the app call
-    #scrape joco.libraries.gov for CURRENT list of libraries
-    #create a nested array of instances for each Lib in Joco, each instance w/the same properties.
-    puts "Johnson County Public Libraries:"
-    self.get_libraries_list
+  def initialize(name = nil, address = nil, phone = nil, hours = nil, url = nil)
+    @name = name
+    @address = address
+    @phone = phone
+    @hours = hours
+    @url = url
+    @@all << self
   end
 
+  def self.all
+    @@all
+  end
 
-  def self.get_libraries_list
-    libraries = []
-    doc = Nokogiri::HTML(open("https://www.jocolibrary.org/locations"))
-    doc.css(".location_name").each {|library|
-      library.name = library.css("a").text
-      libraries << library.name
-      }
+  def self.list_libraries
+    @@all.each_with_index {|song, index|
+      puts "#{index + 1}. #{library.name}"
+    }
+  end
 
-      doc.css(".location_address").each {|location|
-        library.location =  << :location => location.css("p").text
-      }
-      binding.pry
-    end
-
+  def self.find(id)
+    self.all[id-1]
+  end
 
   def get_phone
 

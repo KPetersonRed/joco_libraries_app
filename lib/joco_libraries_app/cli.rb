@@ -1,35 +1,49 @@
 #CLI Controller (responsible for user interface)
 
 class JocoLibrariesApp::CLI
+#attr_accessor :libraries
 
   def call #beginning of interface
-    list_libraries #list current public libraries scraped from website in numberical order
-    library_lookup #lookup user selection
+    JocoLibrariesApp::Scraper.new.make_libraries
+    puts "Welcome to Johnson County Libraries"
+    start
+  end
+
+  def start
+    puts "Here is the most up-to-date list of libraries in Johnson County, KS"
+    list_libraries
+    library_lookup
     goodbye
   end
 
   def list_libraries
-    @libraries = JocoLibrariesApp::Libraries.current #refer to current method in Libraries class to be sure and pull most current list of libraries
-    @libraries.each.with_index(1) {|library, i|  #list libraries in numberical list
-      puts "#{i}. #{library.name}"
+    @libraries = JocoLibrariesApp::Libraries.list_libraries
+    @libraries.each_with_index {|library, index|
+      puts "#{i + 1}. #{library.name}"
     }
   end
 
   def library_lookup
-    input = nil
+    input = ""
     while input != "exit"
       puts "Please enter the number of the location you would like more information or type exit to leave the program.  If you like to see the complete list of libraries located in Johnson County type 'list'."
-      input = gets.strip
-
-      if input.to_i > 0
-        the_library = @libraries[input.to_i - 1]
-        puts "#{the_library.name} - #{the_library.location}"
+      input = gets.strip.to_i
+      if input > 0
+        library = JocoLibrariesApp::Libraries.find[input.to_i]
+        print_library_details(library)
       elsif input == "list"
         list_libraries
       else
         puts "That was not a valid selection.  Please try again."
       end
     end
+  end
+
+  def print_library_details(library)
+    puts "Location: #{library.address}"
+    puts "Phone:"
+    puts "Hours: #{library.hours}"
+    puts "Website: #{library.url}"
   end
 
 
