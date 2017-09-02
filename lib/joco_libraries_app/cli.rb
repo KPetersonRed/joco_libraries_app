@@ -16,7 +16,6 @@ class JocoLibrariesApp::CLI
     JocoLibrariesApp::Libraries.all.each_with_index {|library, index|
       puts "#{index + 1}. #{library.name}"
     }
-  #  binding.pry
   end
 
 
@@ -26,7 +25,7 @@ class JocoLibrariesApp::CLI
       puts "Please enter the number of the location you would like more information or type exit to leave the program.  If you like to see the complete list of libraries located in Johnson County type 'list'."
       input = gets.strip.to_i
       if input > 0
-        library = JocoLibrariesApp::Libraries.find[input.to_i]
+        library = JocoLibrariesApp::Libraries.find(input.to_i)
         print_library_details(library)
       elsif input == "list"
         print_libraries
