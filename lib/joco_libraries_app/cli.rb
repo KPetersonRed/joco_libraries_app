@@ -4,26 +4,21 @@ class JocoLibrariesApp::CLI
 #attr_accessor :libraries
 
   def call #beginning of interface
+    JocoLibrariesApp::Scraper.new.make_libraries
     puts "Welcome to Johnson County Libraries"
     puts "Here is the most up-to-date list of libraries in Johnson County, KS"
-    @libraries = JocoLibrariesApp::Scraper.new.print_library_list
-  #  binding.pry
-    start
-  end
-
-  def start
+    list_libraries
     library_lookup
     goodbye
   end
 
-
-  def print_libraries
-  #  @libraries = JocoLibrariesApp::Scraper.make_libraries
-  #binding.pry
-    @libraries.each_with_index {|library, index|
-      puts "#{i + 1}. #{library.name}"
+  def list_libraries
+    JocoLibrariesApp::Libraries.all.each_with_index {|library, index|
+      puts "#{index + 1}. #{library.name}"
     }
+  #  binding.pry
   end
+
 
   def library_lookup
     input = ""
@@ -46,6 +41,7 @@ class JocoLibrariesApp::CLI
     puts "Phone:"
     puts "Hours: #{library.hours}"
     puts "Website: #{library.url}"
+    puts "Open/Closed?  #{library.status}"
   end
 
 
