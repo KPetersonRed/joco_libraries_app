@@ -9,7 +9,6 @@ class JocoLibrariesApp::CLI
     puts "Here is the most up-to-date list of libraries in Johnson County, KS"
     list_libraries
     library_lookup
-    goodbye
   end
 
   def list_libraries
@@ -20,15 +19,17 @@ class JocoLibrariesApp::CLI
 
 
   def library_lookup
-    input = ""
+    input = nil
     while input != "exit"
       puts "Please enter the number of the location you would like more information or type exit to leave the program.  If you like to see the complete list of libraries located in Johnson County type 'list'."
-      input = gets.strip.to_i
-      if input > 0
+      input = gets.strip.downcase
+      if input.to_i > 0
         library = JocoLibrariesApp::Libraries.find(input.to_i)
         print_library_details(library)
       elsif input == "list"
-        print_libraries
+        list_libraries
+      elsif input == "exit"
+        puts "Thank you!  Goodbye"
       else
         puts "That was not a valid selection.  Please try again."
       end
@@ -36,16 +37,12 @@ class JocoLibrariesApp::CLI
   end
 
   def print_library_details(library)
+    puts "Name: #{library.name}"
     puts "Location: #{library.address}"
     puts "Phone:"
     puts "Hours: #{library.hours}"
     puts "Website: #{library.url}"
     puts "Open/Closed?  #{library.status}"
-  end
-
-
-  def goodbye
-    puts "Have a great day!"
   end
 
 end

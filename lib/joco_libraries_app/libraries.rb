@@ -10,7 +10,7 @@ class JocoLibrariesApp::Libraries
     x.css("p").text.strip,
     #x.css("a").text.strip,
     x.css(".regular_hours").text.strip,
-    x.css(".location_name a").attribute("href").value,
+    x.css("a").attribute("href").value,
     x.css(".open-close").text.strip
     )
   end
