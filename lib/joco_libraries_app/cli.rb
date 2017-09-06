@@ -37,13 +37,15 @@ class JocoLibrariesApp::CLI
   end
 
   def print_library_details(library)
-    binding.pry
     puts "Name: #{library.name}"
     puts "Phone Number: 913-826-4600"
     puts "Location: #{library.address}"
-    puts "Hours: #{library.hours}"
+    #puts "Hours: #{library.hours}"
     puts "Website: #{library.url}"
     puts "Open/Closed?  #{library.status}"
+
+    array = library.hours.split(/\b\s\w[pm]\s/)
+    array.each {|hours| puts "#{hours}"}
   end
 
 end
