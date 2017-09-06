@@ -8,18 +8,18 @@ class JocoLibrariesApp::Libraries
     self.new(
     x.css(".location_name").text.strip,
     x.css("p").text.strip,
-    #x.css("a").text.strip,
-    x.css(".regular_hours").text.strip,
-    x.css("a").attribute("href").value,
+    "https://jocolibrary.org#{x.css("a").attribute("href").value}",
+    x.css(".oh-display").text.strip,
     x.css(".open-close").text.strip
     )
   end
 
-  def initialize(name = nil, address = nil, hours = nil, url = nil, status = nil)
+  def initialize(name = nil, address = nil, url = nil, hours = nil, status = nil)
     @name = name
+    #@phone = phone
     @address = address
-    @hours = hours
     @url = url
+    @hours = hours
     @status = status
     @@all << self
   end
@@ -31,10 +31,5 @@ class JocoLibrariesApp::Libraries
   def self.find(id)
     self.all[id-1]
   end
-
-
-  def phone
-  end
-
 
 end
