@@ -1,6 +1,6 @@
 class JocoLibrariesApp::Libraries
 
-  attr_accessor :name, :phone, :address, :url, :hours, :status
+  attr_accessor :name, :phone, :address, :url, :hours
   @@all = []
 
 
@@ -9,18 +9,15 @@ class JocoLibrariesApp::Libraries
     x.css(".location_name").text.strip,
     x.css("p").text.strip,
     "https://jocolibrary.org#{x.css("a").attribute("href").value}",
-    x.css(".oh-display").text.strip,
-    x.css(".open-close").text.strip
+    x.css(".oh-display").text.strip
     )
   end
 
-  def initialize(name = nil, address = nil, url = nil, hours = nil, status = nil)
+  def initialize(name = nil, address = nil, url = nil, hours = nil)
     @name = name
-    #@phone = phone
     @address = address
     @url = url
     @hours = hours
-    @status = status
     @@all << self
   end
 

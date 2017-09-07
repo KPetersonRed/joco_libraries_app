@@ -2,7 +2,6 @@ class JocoLibrariesApp::Scraper
 
   def get_page
     doc = Nokogiri::HTML(open("https://www.jocolibrary.org/locations"))
-    #binding.pry
   end
 
   def scrape_libraries_index
@@ -14,6 +13,5 @@ class JocoLibrariesApp::Scraper
       JocoLibrariesApp::Libraries.new_from_index_page(x)
     }
   end
-
 
 end
