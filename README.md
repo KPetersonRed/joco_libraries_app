@@ -1,7 +1,9 @@
 # JocoLibrariesApp
 
 #Objective
-CLI User app designed to scrape data from the county library website and return a complete list of libraries in the county along with their address.  The user can then request more detailed info about a particular library and the program will return that data, which will include: daily hours, phone# and library resources available (such as printing, copying, fax services).
+CLI User app designed to scrape data from the county library website and return a complete list of libraries within the county, along with their address.  The user can then request more detailed info about a particular library and the program will return that data.
+
+Data will include: Library name, address, phone number, hours, and web address.
 
 ## Installation
 
