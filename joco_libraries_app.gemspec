@@ -11,7 +11,7 @@ Gem::Specification.new do |spec|
 
   spec.summary       = "coming soon"
   spec.description   = "coming soon"
-  spec.homepage      = "TODO: Put your gem's website or public repo URL here."
+  spec.homepage      = "https://github.com/KPetersonRed/joco_libraries_app"
 
   spec.license       = "MIT"
 
