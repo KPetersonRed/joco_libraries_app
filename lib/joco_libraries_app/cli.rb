@@ -1,5 +1,4 @@
 class JocoLibrariesApp::CLI
-#attr_accessor :libraries
 
   def call #beginning of interface
     JocoLibrariesApp::Scraper.new.make_libraries
@@ -18,7 +17,6 @@ class JocoLibrariesApp::CLI
       puts "#{index + 1}. #{library.name}"
     }
   end
-
 
   def library_lookup
     input = nil
