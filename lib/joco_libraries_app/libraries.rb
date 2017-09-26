@@ -29,4 +29,8 @@ class JocoLibrariesApp::Libraries
     self.all[id-1]
   end
 
+  def self.find_by_name(name)
+    all.find {|library| library.name.downcase == name.downcase}
+  end
+  
 end
