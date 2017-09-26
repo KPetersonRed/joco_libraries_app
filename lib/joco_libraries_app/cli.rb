@@ -1,7 +1,11 @@
+
+require 'pry'
 class JocoLibrariesApp::CLI
+
 
   def call #beginning of interface
     JocoLibrariesApp::Scraper.new.make_libraries
+    binding.pry
     puts ""
     puts "WELCOME TO THE JOHNSON COUNTY LIBRARIES APP"
     puts "Here is the most up-to-date list of libraries in Johnson County, KS"
@@ -13,10 +17,11 @@ class JocoLibrariesApp::CLI
   end
 
   def list_libraries
-    JocoLibrariesApp::Libraries.all.each_with_index {|library, index|
-      puts "#{index + 1}. #{library.name}"
+    JocoLibrariesApp::Libraries.all.each.with_index(1) {|library, index|
+      puts "#{index}. #{library.name}"
     }
   end
+
 
   def library_lookup
     input = nil
@@ -24,7 +29,7 @@ class JocoLibrariesApp::CLI
       puts ""
       puts "Which location would you like to learn more about?  Please type the number of that location and hit 'enter'. To exit the program type 'exit'.  If you would like to see the complete list of libraries located in Johnson County type 'list'."
       input = gets.strip.downcase
-      if input.to_i > 0
+      if input.to_i.between?(1,JocoLibrariesApp::Libraries.all.count)
         library = JocoLibrariesApp::Libraries.find(input.to_i)
         print_library_details(library)
       elsif input == "list"
